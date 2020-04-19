@@ -1,0 +1,49 @@
+<odoo>
+    <data>
+
+        <!--           1   Link To Menu                   -->
+        <record id="action_section" model="ir.actions.act_window">
+            <field name="name">Sections</field>
+            <field name="res_model">syschool.section</field>
+            <field name="view_mode">tree,form,kanban,activity</field>
+        </record>
+        <!--                      1                       -->
+
+
+        <!--            2   Section Tree View             -->
+        <record id="syschool_Section_tree_view" model="ir.ui.view">
+            <field name="name">SySchool Section Tree View</field>
+            <field name="model">syschool.section</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+        <!--                   2                         -->
+
+
+        <!--             3  Section Form view               -->
+        <record id="syschool_section_form_view" model="ir.ui.view">
+            <field name="name">SySchool Section Form View</field>
+            <field name="model">syschool.section</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="picture" widget="image" style="max-width:300px;max-height:300px;"/>
+                            <field name="code" style="width:40%"/>
+                            <field name="name" style="width:100%"/>
+                            <field name="desc" placeholder=" Description of The Section ..."/>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--             3                                  -->
+
+    </data>
+</odoo>

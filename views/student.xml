@@ -1,0 +1,141 @@
+<odoo>
+    <data>
+
+             <!-- Action Of School Student -->
+        <record id="action_student" model="ir.actions.act_window">
+            <field name="name">Students</field>
+            <field name="res_model">syschool.student</field>
+            <field name="view_mode">tree,form,kanban,activity</field>
+        </record>
+
+
+             <!-- Tree View Of School Student -->
+        <record id="syschool_student_tree_view" model="ir.ui.view">
+            <field name="name">SySchool Student Tree View</field>
+            <field name="model">syschool.student</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="student_id"/>
+                    <field name="fname" />
+                    <field name="lname" />
+                    <field name="age" />
+                    <field name="acy" />
+                </tree>
+            </field>
+        </record>
+
+             <!-- Form View Of School Student -->
+        <record id="syschool_student_form_view" model="ir.ui.view">
+            <field name="name">SySchool Student Form View</field>
+            <field name="model">syschool.student</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button class="btn btn-success" name="set_terminate" string="Terminate" type="object" icon="fa-graduation-cap" states="done" />
+                        <button class="btn btn-success" name="set_alumni" string="Alumni" type="object" icon="fa-archive" states="done" />
+                        <button class="oe_highlight oe_stat_button" name="set_done" string="Done" type="object" icon="fa-check" states="draft" />
+                        <button class="btn-danger oe_stat_button" icon="fa-close" name="set_cancel" type="object" string="Cancel" states="draft"/>
+                        <field name="state" widget="statusbar" statusbar_visible="draft,done,terminate,alumni"/>
+                    </header>
+                    <sheet>
+                            <group>
+                                <separator string="Basic Information"/>
+                                <newline/>
+                                 <div>
+                                    <field name="picture" widget="image" style="max-width:100px;max-height:150px;" class=" oe_left"/>
+                                    <field name="student_id" placeholder="Student ID" style="width:70%" required="1"/>
+                                    <field name="acy" placeholder="Academic Year" style="width:55%" required="1"/>
+
+                                </div>
+
+                                <field name="foreign" />
+                            </group>
+                            <footer>
+                                <button class="btn btn-info" name="generate_id" string="Generate Student ID" type="object" icon="fa-cog"/>
+                            </footer>
+                            <newline />
+                         <group>
+                            <group>
+                                <separator string="Standard Information"/>
+                                <field name="ed_class" required="1"/>
+                                <field name="ed_section"/>
+                                <field name="ed_education"/>
+                            </group>
+                            <group>
+                                <separator string="Personal Information"/>
+                                <newline/>
+                                <label for="fname" string="Full Name"/>
+                                <div>
+                                <field name="fname" required="1" placeholder="First" style="width:33%"/>
+                                <field name="mname" placeholder="Middle" style="width:33%"/>
+                                <field name="lname" required="1" placeholder="Family" style="width:33%"/>
+                                </div>
+                                <field name="birthdate" required="1"/>
+                                <field name="age" disable="1"/>
+                                <field name="sex" placeholder="Choose Maritual Status" widget="radio"/>
+                                <field name="maritual_status" placeholder="Choose Maritual Status" />
+
+                            </group>
+                            <group>
+                                <separator string="Contact Information"/>
+                                <br />
+                                <label for="ad_street" string="Adress"/>
+
+                               <div class="o_address_format">
+                                   <field name="ad_street" placeholder="Street..."  style="width:100%"/>
+                                    <field name="ad_city" placeholder="City"  style="width:40%"/>
+                                    <field name="ad_state" placeholder="State"  style="width:40%"/>
+                                   <field name="ad_postal" placeholder="ZIP"  style="width:20%"/>
+                                </div>
+                                    <field name="c_tel1"/>
+                                    <field name="c_tel2" />
+                                    <field name="c_email" widget="email" placeholder="ex:name@email.com"/>
+
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Documents">
+                                <group>
+                                    <field name="d_cin"/>
+                                    <field name="d_passport"/>
+                                </group>
+                            </page>
+                            <page string="Biography">
+                                <field name="p_biography"/>
+                            </page>
+                            <page string="Remarks">
+                                <field name="p_remarks"/>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+         <!-- Search View Of School Student -->
+    <record id="library_author_search_view" model="ir.ui.view">
+        <field name="name">syschool student Search View</field>
+        <field name="model">syschool.student</field>
+        <field name="arch" type="xml">
+            <search string="Students">
+                <field name="name" />
+                <field name="fname" />
+                <field name="lname" />
+                <field name="student_id" />
+                <field name="ed_class" />
+                <field name="ed_section" />
+                <field name="ed_education" />
+                <field name="ad_city" />
+                <field name="c_email" />
+                <field name="d_cin" />
+            </search>
+        </field>
+    </record>
+
+
+    </data>
+</odoo>

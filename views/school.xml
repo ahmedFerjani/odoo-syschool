@@ -1,0 +1,66 @@
+<odoo>
+    <data>
+        <!--           1   Link To Menu                   -->
+        <record id="action_school" model="ir.actions.act_window">
+            <field name="name">School</field>
+            <field name="res_model">syschool.school</field>
+            <field name="view_mode">form</field>
+            <field name="view_type">form</field>
+        </record>
+        <!--                      1                       -->
+
+        <!--             3  School Form view               -->
+        <record id="syschool_school_form_view" model="ir.ui.view">
+            <field name="name">SySchool School Form View</field>
+            <field name="model">syschool.school</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                            <group>
+                                <separator string="School Information"/>
+                                <newline/>
+
+                                 <div>
+                                    <field name="logo" widget="image" style="max-width:1000px;max-height:1000px;" class=" oe_left"/>
+                                    <field name="name" placeholder="School's Full Name"/>
+                                 </div>
+                                <group>
+
+                                </group>
+
+                                <group>
+                                    <separator string="Contact" />
+                                    <field name="c_tel1" />
+                                    <field name="c_tel2" />
+                                    <field name="c_fax" />
+                                    <field name="c_email" />
+                                </group>
+                                <group>
+                                    <separator string="Adress" />
+                                    <field name="ad_postal" />
+                                    <field name="ad_city" />
+                                    <field name="ad_state" />
+                                    <field name="ad_street" />
+                                </group>
+                            </group>
+
+                        <notebook>
+                            <page string="Documents">
+                                <group>
+
+                                </group>
+                            </page>
+
+
+                            <page string="Remarks">
+
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--             3                                  -->
+    </data>
+</odoo>

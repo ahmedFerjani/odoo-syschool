@@ -1,0 +1,63 @@
+<odoo>
+    <data>
+        <!--           1   Link To Menu                   -->
+        <record id="action_course" model="ir.actions.act_window">
+            <field name="name">Courses</field>
+            <field name="res_model">syschool.course</field>
+            <field name="view_mode">tree,form,kanban,activity</field>
+        </record>
+        <!--                      1                       -->
+
+
+        <!--            2   Student Tree View             -->
+        <record id="syschool_course_tree_view" model="ir.ui.view">
+            <field name="name">SySchool Course Tree View</field>
+            <field name="model">syschool.course</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="name" />
+                    <field name="section" />
+                    <field name="coef" />
+                </tree>
+            </field>
+        </record>
+        <!--                   2                         -->
+
+      <!--             3  Student Form view               -->
+        <record id="syschool_course_form_view" model="ir.ui.view">
+            <field name="name">SySchool Course Form View</field>
+            <field name="model">syschool.course</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="code" required="1"/>
+                                <field name="hours" placeholder="Hours of study per week"/>
+                                <field name="section" required="1"/>
+                                <field name="max_marks" />
+                                <field name="is_pratical"/>
+                            </group>
+                            <group>
+                                <field name="name" />
+                                <field name="coef" />
+                                <field name="type" />
+                                <field name="min_marks"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Teachers">
+                                <field name="teacher_ids" options="{'no_create':True}"/>
+                            </page>
+                        </notebook>
+                        <field name="desc" placeholder="Description..."/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--             3                                  -->
+
+    </data>
+</odoo>

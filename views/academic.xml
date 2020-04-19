@@ -1,0 +1,84 @@
+<odoo>
+    <data>
+
+        <!--           1   Link To Menu                   -->
+        <record id="action_academic" model="ir.actions.act_window">
+            <field name="name">Academic Year</field>
+            <field name="res_model">syschool.academic</field>
+            <field name="view_mode">tree,form,kanban,activity</field>
+        </record>
+        <!--                      1                       -->
+
+
+        <!--            2   Academic year Tree View             -->
+        <record id="syschool_Academic_tree_view" model="ir.ui.view">
+            <field name="name">SySchool Academic Tree View</field>
+            <field name="model">syschool.academic</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="code" />
+                    <field name="current" />
+                    <field name="start_date" />
+                    <field name="end_date" />
+                </tree>
+            </field>
+        </record>
+        <!--                   2                         -->
+
+
+        <!--             3  Academic year Form view               -->
+        <record id="syschool_academic_form_view" model="ir.ui.view">
+            <field name="name">SySchool Academic Form View</field>
+            <field name="model">syschool.academic</field>
+            <field name="arch" type="xml">
+                <form>
+                 <header>
+                    <button name="generate_academicmonth" type="object" string="Generate Months"/>
+                </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="start_date" required="1"/>
+                            </group>
+                            <group>
+                                <field name="code" required="1"/>
+                                <field name="end_date" required="1"/>
+                            </group>
+                            <group>
+                                <field name="current"/>
+                            </group>
+
+                        </group>
+                    <notebook colspan="4">
+                        <page string="Months">
+                            <field name="month_ids" nolabel="1" colspan="4">
+                                <tree string="Months">
+                                    <field name="name" />
+                                    <field name="code" />
+                                    <field name="date_start" />
+                                    <field name="date_stop" />
+                                </tree>
+                                <form string="Months">
+                                    <group col="4" colspan="4">
+                                        <field name="name" placeholder="Name" />
+                                        <field name="code" placeholder="Code" />
+                                        <field name="date_start" placeholder="Start Date" />
+                                        <field name="date_stop" placeholder="Stop Date" />
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+                    <field name="desc" placeholder=" Description of The Academic year ..."/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--             3                                  -->
+
+
+    </data>
+</odoo>

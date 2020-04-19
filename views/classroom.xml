@@ -1,0 +1,67 @@
+<odoo>
+    <data>
+        <!--           1   Link To Menu                   -->
+        <record id="action_class" model="ir.actions.act_window">
+            <field name="name">Classrooms</field>
+            <field name="res_model">syschool.class</field>
+            <field name="view_mode">tree,form,kanban,activity</field>
+        </record>
+        <!--                      1                       -->
+
+        <!--            2   Academic year Tree View             -->
+        <record id="syschool_class_tree_view" model="ir.ui.view">
+            <field name="name">SySchool class Tree View</field>
+            <field name="model">syschool.class</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="ID"/>
+                    <field name="name" />
+                    <field name="section" />
+                    <field name="nbr" />
+                    <field name="acy" />
+                </tree>
+            </field>
+        </record>
+        <!--                   2                         -->
+
+  <!--             3  Academic year Form view               -->
+        <record id="syschool_class_form_view" model="ir.ui.view">
+            <field name="name">SySchool Class Form View</field>
+            <field name="model">syschool.class</field>
+            <field name="arch" type="xml">
+                <form>
+                 <header>
+
+                </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="ID" required="1"/>
+                                <field name="name" required="1"/>
+                                <field name="acy" required="1"/>
+                            </group>
+                            <group>
+                                <field name="nbr" required="0"/>
+                                <field name="section" required="0"/>
+                            </group>
+                        </group>
+                    <notebook colspan="4">
+                        <page string="List of Students">
+                            <field name="student_ids"/>
+                        </page>
+                        <page string="List of Teachers">
+
+                        </page>
+                    </notebook>
+                    <field name="desc" placeholder=" Description ..."/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--             3                                  -->
+
+
+
+    </data>
+</odoo>

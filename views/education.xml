@@ -1,0 +1,69 @@
+<odoo>
+    <data>
+
+        <!--           1   Link To Menu                   -->
+        <record id="action_education" model="ir.actions.act_window">
+            <field name="name">Education</field>
+            <field name="res_model">syschool.education</field>
+            <field name="view_mode">tree,form,kanban,activity</field>
+        </record>
+        <!--                      1                       -->
+
+
+        <!--            2   Section Tree View             -->
+        <record id="syschool_eduction_tree_view" model="ir.ui.view">
+            <field name="name">SySchool Education Tree View</field>
+            <field name="model">syschool.education</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="sys" />
+                    <field name="grade" />
+                    <field name="level" />
+                </tree>
+            </field>
+        </record>
+        <!--                   2                         -->
+
+         <!--             3  Section Form view               -->
+        <record id="syschool_education_form_view" model="ir.ui.view">
+            <field name="name">SySchool Education Form View</field>
+            <field name="model">syschool.education</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <separator string="General Information"/>
+                        <group>
+
+                            <newline />
+                            <group>
+                                <field name="id" />
+                                <field name="name" />
+                            </group>
+                            <group>
+                                <field name="dip" />
+                            </group>
+                        </group>
+                        <separator string="Details"/>
+                        <group>
+                            <group>
+                                <field name="sys" />
+                                <field name="level" />
+                            </group>
+                            <group>
+                                <field name="grade" />
+                                <field name="year" />
+                            </group>
+                        </group>
+                        <field name="desc" placeholder=" Description ..."/>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--             3                                  -->
+
+
+    </data>
+</odoo>

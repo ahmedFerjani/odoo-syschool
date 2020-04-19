@@ -1,0 +1,125 @@
+<odoo>
+    <data>
+
+
+        <!-- 1/link to Menu-->
+        <record id="action_teacher" model="ir.actions.act_window">
+            <field name="name">Teachers</field>
+            <field name="res_model">syschool.teacher</field>
+            <field name="view_mode">tree,form,kanban,activity</field>
+        </record>
+        <!-- 1/link to Menu-->
+
+        <!--            2   Teacher Tree View             -->
+        <record id="syschool_teacher_tree_view" model="ir.ui.view">
+            <field name="name">SySchool Teacher Tree View</field>
+            <field name="model">syschool.teacher</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="teacher_id"/>
+                    <field name="name" />
+                    <field name="ed_class" />
+                    <field name="ed_course"/>
+                    <field name="po_department"/>
+                    <field name="po_job"/>
+                </tree>
+            </field>
+        </record>
+        <!--                   2                         -->
+
+         <!--             3  Teacher Form view               -->
+        <record id="syschool_teacher_form_view" model="ir.ui.view">
+            <field name="name">SySchool Teacher Form View</field>
+            <field name="model">syschool.teacher</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <separator string="Basic Information"/>
+                                <newline/>
+                                <div>
+                                    <field name="picture" widget="image" style="max-width:100px;max-height:150px;" class=" oe_left oe_avatar" />
+                                    <field name="teacher_id" placeholder="Teacher ID" style="width:30%" required="1"/>
+                                    <field name="name" placeholder="Teacher's Full Name" style="width:70%" required="1"/>
+                                </div>
+                            </group>
+                            <footer>
+                                <button class="btn btn-info" name="" string="Generate Teacher ID" type="object" icon="fa-cog"/>
+                            </footer>
+                            <group></group>
+                            <group>
+                                <field name="ed_class" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                <field name="ed_course" widget="many2many_tags"/>
+                             </group>
+
+                        </group>
+                            <notebook>
+                                <page string="Public Information">
+                                    <group>
+                                        <group>
+                                            <separator string="Contact Information"/>
+                                            <br />
+                                            <label for="ad_street" string="Work Adress"/>
+
+                                            <div class="o_address_format">
+                                                <field name="ad_street" placeholder="Street..."  style="width:100%" required="1"/>
+                                                <field name="ad_city" placeholder="City"  style="width:40%" required="1"/>
+                                                <field name="ad_state" placeholder="State"  style="width:40%"/>
+                                                <field name="ad_postal" placeholder="ZIP"  style="width:20%"/>
+                                            </div>
+                                            <field name="c_tel1" required="1"/>
+                                            <field name="c_email" widget="email" placeholder="ex:name@email.com" required="1"/>
+
+                                        </group>
+
+                                        <group>
+                                            <separator string="Job Position" />
+                                            <field name="po_department" required="1" />
+                                            <field name="po_job" required="1" />
+                                            <field name="po_manager" />
+                                            <field name="po_coach" />
+                                        </group>
+                                    </group>
+                                </page>
+                                <page string="Personal Information">
+                                    <group>
+                                        <group>
+                                            <separator string="Citizenship and Other Information" />
+                                            <field name="cin" required="1"/>
+                                            <field name="d_cin" />
+                                            <field name="passport"/>
+                                            <field name="d_passport"/>
+                                        </group>
+                                        <group>
+                                            <separator string="Contact"/>
+                                            <field name="c_tel2" />
+                                        </group>
+                                        <group>
+                                            <separator string="Status"/>
+                                            <field name="sex" widget="radio" />
+                                            <field name="maritual_status" />
+                                        </group>
+                                        <group>
+                                            <separator string="Birth" />
+                                            <field name="birthdate" />
+                                            <field name="age" />
+                                        </group>
+                                    </group>
+
+                                </page>
+                            </notebook>
+                        <field name="notes" placeholder="Other Information ..." colspan="4"/>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--             3                                  -->
+
+
+    </data>
+</odoo>

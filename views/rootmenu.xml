@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <menuitem id="rootmenu" name="SySchool"/>
+        <menuitem id="profiles" name="Profiles" parent="rootmenu"/>
+        <menuitem id="students" name="Students" parent="profiles" action="action_student"/>
+        <menuitem id="teachers" name="Teachers" parent="profiles" action="action_teacher"/>
+        <menuitem id="ac_setup" name="Academic Setup" parent="rootmenu"/>
+        <menuitem id="ac_year" name="Academic Year" parent="ac_setup" action="action_academic"/>
+        <menuitem id="ac_section" name="Section/Subject" parent="ac_setup" action="action_section"/>
+        <menuitem id="ac_education" name="Education" parent="ac_setup" action="action_education"/>
+        <menuitem id="ac_school" name="School" parent="ac_setup" action="action_school"/>
+        <menuitem id="ac_class" name="Classrooms" parent="ac_setup" action="action_class"/>
+        <menuitem id="ac_course" name="Courses" parent="ac_setup" action="action_course"/>
+    </data>
+</odoo>
